@@ -1,0 +1,94 @@
+{
+  "name": "reservation-platform",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+};
+
+module.exports = nextConfig;
+export default function Home() {
+  return (
+    <main style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: '#111',
+      color: '#fff',
+      fontFamily: 'sans-serif'
+    }}>
+      <h1>سامانه رزرو سانس</h1>
+      <a href="/login" style={{
+        marginTop: '20px',
+        padding: '10px 20px',
+        background: '#ff4444',
+        color: '#fff',
+        borderRadius: '8px',
+        textDecoration: 'none'
+      }}>
+        ورود / ثبت‌نام
+      </a>
+    </main>
+  );
+}
+'use client';
+
+import { useState } from 'react';
+
+export default function LoginPage() {
+  const [phone, setPhone] = useState('');
+
+  const handleLogin = () => {
+    alert(`کد تأیید برای شماره ${phone} ارسال شد (شبیه‌سازی)`);
+  };
+
+  return (
+    <main style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: '#222',
+      color: '#fff',
+      fontFamily: 'sans-serif'
+    }}>
+      <h2>ورود با شماره تلفن</h2>
+      <input
+        type="tel"
+        placeholder="مثلاً 09121234567"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        style={{
+          marginTop: '10px',
+          padding: '10px',
+          fontSize: '16px',
+          borderRadius: '5px'
+        }}
+      />
+      <button onClick={handleLogin} style={{
+        marginTop: '15px',
+        padding: '10px 20px',
+        background: '#00cc66',
+        border: 'none',
+        borderRadius: '5px',
+        color: '#fff'
+      }}>
+        ارسال کد
+      </button>
+    </main>
+  );
+}
